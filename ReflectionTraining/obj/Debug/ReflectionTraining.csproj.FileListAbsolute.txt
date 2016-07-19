@@ -1,0 +1,6 @@
+c:\users\kgn\documents\visual studio 2015\Projects\ReflectionTraining\ReflectionTraining\bin\Debug\ReflectionTraining.exe.config
+c:\users\kgn\documents\visual studio 2015\Projects\ReflectionTraining\ReflectionTraining\bin\Debug\ReflectionTraining.exe
+c:\users\kgn\documents\visual studio 2015\Projects\ReflectionTraining\ReflectionTraining\bin\Debug\ReflectionTraining.pdb
+c:\users\kgn\documents\visual studio 2015\Projects\ReflectionTraining\ReflectionTraining\obj\Debug\ReflectionTraining.csprojResolveAssemblyReference.cache
+c:\users\kgn\documents\visual studio 2015\Projects\ReflectionTraining\ReflectionTraining\obj\Debug\ReflectionTraining.exe
+c:\users\kgn\documents\visual studio 2015\Projects\ReflectionTraining\ReflectionTraining\obj\Debug\ReflectionTraining.pdb
