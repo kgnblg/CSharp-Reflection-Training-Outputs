@@ -17,7 +17,7 @@ namespace ReflectionTraining
             foreach (var type in classtypes)
             {
                 string classaccesstype = type.IsPublic ? "public class" : "class";
-                File.WritetoLine("  " + classaccesstype + " " + CorrectString.SplitIt(type.FullName, '.', 1));
+                File.WritetoLine("  " + classaccesstype + " " + type.Name);
                 File.WritetoLine("  {");
 
                 Field field = new Field(type.GetFields());
