@@ -18,25 +18,9 @@ namespace ReflectionTraining
             File.WritetoLine("namespace "+classtypes[1].Namespace);
             File.WritetoLine("{");
 
-            foreach (var type in classtypes)
-            {
-                string classaccesstype = type.IsPublic ? "public class" : "class";
-                File.WritetoLine("  "+classaccesstype + " " + CorrectString.SplitIt(type.FullName,'.',1));
-                File.WritetoLine("  {");
+            Class classes = new Class(classtypes);
+            classes.PrintClasses();
 
-                Field field = new Field(type.GetFields());
-                field.PrintFields();
-
-                File.WritetoLine("");
-
-                PropertyInfo[] propertyinfos = type.GetProperties();
-                Property property = new Property(propertyinfos);
-                property.PrintPropertys();
-
-                File.WritetoLine("  }");
-                File.WritetoLine("");
-
-            }
             File.WritetoLine("}");
             file.CloseConnection();
             Console.ReadKey();

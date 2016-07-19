@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class.cs" />
     <Compile Include="CorrectString.cs" />
     <Compile Include="Field.cs" />
     <Compile Include="File.cs" />
