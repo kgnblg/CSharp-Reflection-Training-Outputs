@@ -15,7 +15,11 @@ namespace ReflectionTraining
             foreach (var field in fieldinfo)
             {
                 string takefield = CorrectString.SplitIt(field.FieldType.ToString(),'.',1);
-                File.WritetoLine("  "+takefield+" "+field.Name+";");
+
+                string staticcontrol = field.IsStatic ? "static" : "";
+                string publiccontrol = field.IsPublic ? "public" : "";
+
+                File.WritetoLine("  "+publiccontrol+" "+staticcontrol+" "+takefield+" "+field.Name+";");
             }
         }
     }

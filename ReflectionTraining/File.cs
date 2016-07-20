@@ -28,7 +28,6 @@ namespace ReflectionTraining
         {
             streamwriter.Close();
             filestream.Close();
-
         }
     }
 }

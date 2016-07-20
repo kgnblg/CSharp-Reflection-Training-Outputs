@@ -16,21 +16,33 @@ namespace ReflectionTraining
         {
             foreach (var type in classtypes)
             {
-                string classaccesstype = type.IsPublic ? "public class" : "class";
-                File.WritetoLine("  " + classaccesstype + " " + type.Name);
-                File.WritetoLine("  {");
+                if (type.IsClass)
+                {
+                    File file = new File("C:/" + type.Name + ".cs");
+                    file.SetFile();
 
-                Field field = new Field(type.GetFields());
-                field.PrintFields();
+                    File.WritetoLine("using System;");
+                    File.WritetoLine("");
+                    File.WritetoLine("namespace " + type.Namespace);
+                    File.WritetoLine("{");
 
-                File.WritetoLine("");
+                    string classaccesstype = type.IsPublic ? "public class" : "class";
+                    File.WritetoLine("  " + classaccesstype + " " + type.Name);
+                    File.WritetoLine("  {");
 
-                PropertyInfo[] propertyinfos = type.GetProperties();
-                Property property = new Property(propertyinfos);
-                property.PrintPropertys();
+                    Field field = new Field(type.GetFields());
+                    field.PrintFields();
 
-                File.WritetoLine("  }");
-                File.WritetoLine("");
+                    File.WritetoLine("");
+
+                    PropertyInfo[] propertyinfos = type.GetProperties();
+                    Property property = new Property(propertyinfos);
+                    property.PrintPropertys();
+
+                    File.WritetoLine("  }");
+                    File.WritetoLine("}");
+                    file.CloseConnection();
+                }
             }
         }
     }

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection;
 
 namespace ReflectionTraining
 {
@@ -7,22 +6,15 @@ namespace ReflectionTraining
     {
         static void Main(string[] args)
         {
-            var assembly = Assembly.LoadFile("C:/ReflectionOrnekClass.dll");
-            var classtypes = assembly.GetTypes();
-
-            File file = new File("C:/cikti.cs");
-            file.SetFile();
-
-            File.WritetoLine("using System;");
-            File.WritetoLine("");
-            File.WritetoLine("namespace "+classtypes[1].Namespace);
-            File.WritetoLine("{");
+            AssemblyFile assemblyfile = new AssemblyFile("C:/ReflectionOrnekClass.dll");
+            var classtypes = assemblyfile.GetFile();
 
             Class classes = new Class(classtypes);
             classes.PrintClasses();
 
-            File.WritetoLine("}");
-            file.CloseConnection();
+            Enum enums = new Enum(classtypes);
+            enums.PrintEnums();
+
             Console.ReadKey();
         }
     }
