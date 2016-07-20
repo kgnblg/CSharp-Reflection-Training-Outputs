@@ -10,10 +10,13 @@ namespace ReflectionTraining
             var classtypes = assemblyfile.GetFile();
 
             Class classes = new Class(classtypes);
-            classes.PrintClasses();
+            classes.PrintIt();
 
             Enum enums = new Enum(classtypes);
-            enums.PrintEnums();
+            enums.PrintIt();
+
+            Structs structs = new Structs(classtypes);
+            structs.PrintIt();
 
             Console.ReadKey();
         }

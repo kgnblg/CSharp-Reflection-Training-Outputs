@@ -9,8 +9,3 @@ namespace ReflectionOrnekClass
   MacCaine,
   }
 }
-None,
-  Obama,
-  MacCaine,
-  }
-}

@@ -2,11 +2,11 @@
 
 namespace ReflectionTraining
 {
-    class Enum: ITypes
+    class Structs: ITypes
     {
-        public Type [] types { get; set; }
+        public Type[] types { get; set; }
 
-        public Enum(Type [] types)
+        public Structs(Type[] types)
         {
             this.types = types;
         }
@@ -15,7 +15,7 @@ namespace ReflectionTraining
         {
             foreach (var type in types)
             {
-                if (type.IsEnum)
+                if (type.IsValueType && type.IsEnum == false)
                 {
                     File file = new File("C:/dlloutputs/" + type.Name + ".cs");
                     file.SetFile();
@@ -25,17 +25,13 @@ namespace ReflectionTraining
                     File.WritetoLine("namespace " + type.Namespace);
                     File.WritetoLine("{");
 
-                    File.WritetoLine("  public enum " + type.Name);
+                    File.WritetoLine("  public struct " + type.Name);
                     File.WritetoLine("  {");
 
-                    string[] enumvalues = type.GetEnumNames();
+                    Field field = new Field(type.GetFields());
+                    field.PrintFields();
 
-                    foreach (var value in enumvalues)
-                    {
-                        File.WritetoLine("  "+value+",");
-                    }
-
-                    File.WritetoLine("  }");
+                    File.WritetoLine("  };");
                     File.WritetoLine("}");
                     file.CloseConnection();
                 }

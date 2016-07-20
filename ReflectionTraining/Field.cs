@@ -16,10 +16,7 @@ namespace ReflectionTraining
             {
                 string takefield = CorrectString.SplitIt(field.FieldType.ToString(),'.',1);
 
-                string staticcontrol = field.IsStatic ? "static" : "";
-                string publiccontrol = field.IsPublic ? "public" : "";
-
-                File.WritetoLine("  "+publiccontrol+" "+staticcontrol+" "+takefield+" "+field.Name+";");
+                File.WritetoLine("  public "+takefield+" "+field.Name+";");
             }
         }
     }

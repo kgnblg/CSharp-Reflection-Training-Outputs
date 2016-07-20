@@ -3,22 +3,22 @@ using System.Reflection;
 
 namespace ReflectionTraining
 {
-    class Class
+    class Class: ITypes
     {
-        Type[] classtypes { get; set; }
+        public Type[] types { get; set; }
 
-        public Class(Type [] classtypes)
+        public Class(Type [] types)
         {
-            this.classtypes = classtypes;
+            this.types = types;
         }
 
-        public void PrintClasses()
+        public void PrintIt()
         {
-            foreach (var type in classtypes)
+            foreach (var type in types)
             {
                 if (type.IsClass)
                 {
-                    File file = new File("C:/" + type.Name + ".cs");
+                    File file = new File("C:/dlloutputs/" + type.Name + ".cs");
                     file.SetFile();
 
                     File.WritetoLine("using System;");
@@ -26,8 +26,7 @@ namespace ReflectionTraining
                     File.WritetoLine("namespace " + type.Namespace);
                     File.WritetoLine("{");
 
-                    string classaccesstype = type.IsPublic ? "public class" : "class";
-                    File.WritetoLine("  " + classaccesstype + " " + type.Name);
+                    File.WritetoLine("  public class " + type.Name);
                     File.WritetoLine("  {");
 
                     Field field = new Field(type.GetFields());

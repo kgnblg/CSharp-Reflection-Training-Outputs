@@ -2,11 +2,11 @@ using System;
 
 namespace ReflectionOrnekClass
 {
-  class Urun
+  public class Urun
   {
-  public  String urunkod;
-  public  String urunad;
-  public  Int32 stok;
+  public String urunkod;
+  public String urunad;
+  public Int32 stok;
 
   public String Urunkod{ get; set; }
   public String Urunad{ get; set; }
